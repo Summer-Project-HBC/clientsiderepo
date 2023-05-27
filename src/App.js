@@ -15,7 +15,7 @@ function App() {
           <Route path="/browse" element={<BrowseEvents />} />
           <Route path="/https://www.bc.fi/" />
           <Route path="/https://www.bc.fi/" />
-          <Route path="/events/:id" element={<EventPage />} />
+          <Route path="/browse/:individualevent" element={<EventPage />} />
         </Routes>
       </BrowserRouter>
     </div>

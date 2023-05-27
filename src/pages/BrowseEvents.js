@@ -11,10 +11,11 @@ function BrowseEvents() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8004/events")
+    fetch("http://localhost:8004/event")
       .then((response) => response.json())
       .then((data) => setEvents(data));
     setIsLoading(false);
+
   }, []);
 
   if (isLoading) {
