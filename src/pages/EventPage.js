@@ -11,11 +11,12 @@ function EventPage() {
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:3001/events/${params.id}`)
+    fetch(`http://localhost:8004/event/${params.id}`)
       .then((response) => response.json())
       .then((data) => setData(data));
     setIsLoading(false);
-  }, []);
+
+  }, [params.id]);
 
   if (isLoading) {
     return <p>Loading...</p>;
