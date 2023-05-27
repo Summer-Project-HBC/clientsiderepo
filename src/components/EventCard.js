@@ -10,8 +10,8 @@ function EventCard({ event }) {
       <div className="event-card-content">
         <h2>{event.title}</h2>
         <p>{event.location}</p>
-        <p>{event.date?.map((item) => item.date)}</p>
-        <Link to={`/events/${event.id}`} className="event-link">
+        <p>{event.date.date}</p>
+        <Link to={`/browse/${event.id}`} className="event-link">
           View Event
         </Link>
       </div>
