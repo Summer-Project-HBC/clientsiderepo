@@ -1,0 +1,97 @@
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page-container {
+  background-image: url("./assets/team-sitting-desk-checking-reports-talking-top-view.jpg");
+  background-size: cover;
+  background-position: center;
+  max-height: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: rgb(47, 45, 45);
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-links li a:hover {
+  color: #ffcc00;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.hero-banner {
+  height: 200px;
+  /* background-image: url("./assets/team-sitting-desk-checking-reports-talking-top-view.jpg");
+  background-size: cover;
+  background-position: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-banner h1 {
+  color: rgb(122, 114, 114);
+  font-size: 4rem;
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.card {
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(107, 104, 104);
+  height: 200px;
+  width: 250px;
+  margin: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.card a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.card h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+.card p {
+  font-size: 1.2rem;
+}
