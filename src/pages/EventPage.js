@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, NavLink } from "react-router-dom";
 import SignUpForm from "../components/SignUpForm";
 import "./EventPage.css";
 
@@ -38,7 +38,7 @@ function EventPage() {
               <p>Date: {data.date.date}</p>
               <p>Time: {data.time.date}</p>
               <p>Duration: {data.duration} hrs</p>
-              <p>Venue: {data.location}</p>
+              <p>Venue: {data.location} <span><NavLink to={`https://www.google.com/maps/place/${data.location}`}>↗️</NavLink></span></p>
               <p>Transportation: {data.transport}</p>
             </div>
 
