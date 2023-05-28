@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import AddEvent from "./pages/AddEvent";
 import BrowseEvents from "./pages/BrowseEvents";
 import EventPage from "./pages/EventPage";
@@ -9,6 +10,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddEvent />} />
