@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import EventCard from "../components/EventCard";
-import Navbar from "../components/Navbar";
 
 import "./BrowseEvents.css";
 
@@ -24,7 +23,6 @@ function BrowseEvents() {
 
   return (
     <div>
-      <Navbar />
       <div className="page-container">
         <div className="container">
           <h1>Browse Events</h1>
