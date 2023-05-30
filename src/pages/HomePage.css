@@ -4,42 +4,39 @@ body {
   padding: 0;
 }
 
-.home-page-container {
-  background-image: url("../assets/team-sitting-desk-checking-reports-talking-top-view.jpg");
-  background-size: cover;
-  background-position: center;
-  max-height: 100%;
-}
-
-.container {
-  max-width: 80%;
-  margin: 0 auto;
-  padding: 10px;
-}
-
 .hero-banner {
-  height: 200px;
-  /* background-image: url("./assets/team-sitting-desk-checking-reports-talking-top-view.jpg");
-  background-size: cover;
-  background-position: center; */
+  height: 15rem;
+  background-image: url("../assets/team-sitting-desk-checking-reports-talking-top-view.jpg");
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.link-events {
+  background-color: gray;
+  height: 2rem;
+  width: 8rem;
+  margin-left: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
 }
 
-.hero-banner h1 {
-  color: rgb(122, 114, 114);
-  font-size: 4rem;
+.link-events a {
+  color: #fff;
+}
+
+
+.event-container {
+  margin: 2rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.card-container h2 {
   text-align: center;
-}
-
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 2rem;
 }
 
 .card {

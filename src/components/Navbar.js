@@ -11,7 +11,6 @@ function Navbar() {
       <div>
         <nav>
           <ul className="nav-links">
-
             <li className="nav-item">
               <Link to="/" className="nav-link">
                 Home
@@ -19,7 +18,7 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <Link to="/browse" className="nav-link">
-                Browse Events
+                Events
               </Link>
             </li>
             <li className="nav-item">
