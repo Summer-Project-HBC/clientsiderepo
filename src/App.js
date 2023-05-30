@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import AddEvent from "./pages/AddEvent";
@@ -8,6 +8,11 @@ import FrequentQuestions from "./pages/FrequentQuestions";
 import HomePage from "./pages/HomePage";
 
 function App() {
+  const [answer, setAnswer] = useState(true);
+
+  const answerHandler = () => {
+    setAnswer(answer);
+  }
   return (
     <div>
       <BrowserRouter>
@@ -16,7 +21,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddEvent />} />
           <Route path="/browse" element={<BrowseEvents />} />
-          <Route path="/questions" element={<BrowseEvents />} />
+          <Route path="/questions" element={<FrequentQuestions click={answerHandler} />} />
           <Route path="/https://www.bc.fi/" />
           <Route path="/https://www.bc.fi/" />
           <Route path="/browse/:individualevent" element={<EventPage />} />
