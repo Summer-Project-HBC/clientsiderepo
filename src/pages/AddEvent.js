@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-
 import axios from "axios";
-
+import DatePicker from "react-datepicker";
+import TimePicker from "react-time-picker";
+import "react-datepicker/dist/react-datepicker.css";
+import "react-time-picker/dist/TimePicker.css";
 import "./AddEvent.css";
 
 function AddEvent() {
   const [title, setTitle] = useState("");
   const [info, setInfo] = useState("");
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
   const [picture, setPicture] = useState("");
   const [location, setLocation] = useState("");
   const [transport, setTransport] = useState("");
@@ -37,7 +39,7 @@ function AddEvent() {
       setLocation("");
       setTransport("");
       setPicture("");
-    } catch (error) { }
+    } catch (error) {}
   };
 
   return (
@@ -64,20 +66,25 @@ function AddEvent() {
           </div>
           <div>
             <label htmlFor="date">Date:</label>
-            <textarea
+            <DatePicker
               id="date"
-              value={date}
-              onChange={(event) => setDate(event.target.value)}
+              selected={date}
+              onChange={(date) => setDate(date)}
+              dateFormat="yyyy-MM-dd"
             />
           </div>
-          <div>
+          <div className="input-container">
             <label htmlFor="time">Time:</label>
-            <textarea
-              id="time"
-              value={time}
-              onChange={(event) => setTime(event.target.value)}
-            />
+            <div className="time-input-wrapper">
+              <input
+                type="time"
+                id="time"
+                value={time}
+                onChange={(event) => setTime(event.target.value)}
+              />
+            </div>
           </div>
+
           <div>
             <label htmlFor="duration">Duration:</label>
             <textarea
