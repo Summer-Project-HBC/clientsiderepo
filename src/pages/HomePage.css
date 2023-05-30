@@ -28,7 +28,7 @@ body {
 
 
 .event-container {
-  margin: 2rem 5rem;
+  margin: 1.5rem 5rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
