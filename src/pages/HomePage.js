@@ -5,35 +5,21 @@ import './HomePage.css'
 const HomePage = () => {
   return (
     <div className="home-page-container">
-      <div className="container">
-        <div className="hero-banner">
-          <Link to="/browse">Browse events</Link>
+      <div className="hero-banner">
+        <div className='link-events'>
+          <Link to="/browse">Browse Events</Link>
         </div>
-        <div className="card-container">
-          <div className="card">
-            <Link to="/add">
-              <h2>Add Event</h2>
-              <p>Add a new event</p>
-            </Link>
-          </div>
-          <div className="card">
-            <Link to="/browse">
-              <h2>Browse Events</h2>
-              <p>Explore our events</p>
-            </Link>
-          </div>
-          <div className="card">
-            <Link to="https://www.bc.fi/">
-              <h2>BC's website</h2>
-              <p>Visit Our Website</p>
-            </Link>
-          </div>
-          <div className="card">
-            <Link to="https://www.myhelsinki.fi/see-and-do/events">
-              <h2>What to do in Helsinki</h2>
-              <p>Visit city of Helsinki</p>
-            </Link>
-          </div>
+      </div>
+      <div className="card-container">
+        <div>
+          <h2>Upcoming Events</h2>
+        </div>
+
+        <div className='event-container'>
+          <div className='card'>First event</div>
+          <div className='card'>First event</div>
+          <div className='card'>First event</div>
+          <div className='card'>First event</div>
         </div>
       </div>
     </div>

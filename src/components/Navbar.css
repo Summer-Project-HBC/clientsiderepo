@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
+  background-color: lightgray;
 }
 
 nav ul {
@@ -20,6 +21,5 @@ a {
 }
 
 a:hover {
-  transform: scale(1.2);
   text-decoration: underline;
 }
