@@ -7,8 +7,8 @@ body {
 .add-event-container {
   /* background: url('./assets/team-sitting-desk-checking-reports-talking-top-view.jpg') no-repeat center center/cover; */
   background-color: #444;
-  height: 100vh;
-  padding: 50px;
+  height: 100%;
+  padding: 30px;
   color: white;
   font-family: "Raleway", sans-serif;
 }
@@ -24,7 +24,8 @@ body {
 }
 
 .add-event-container input,
-.add-event-container textarea {
+.add-event-container textarea,
+.add-event-container input[type="date"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -34,6 +35,10 @@ body {
   color: #444;
   font-size: 16px;
   font-family: "Raleway", sans-serif;
+}
+
+.add-event-container input[type="date"] {
+  box-sizing: border-box;
 }
 
 .add-event-container button[type="submit"] {
@@ -59,4 +64,35 @@ body {
   border-radius: 3px;
   margin-top: 10px;
   margin-bottom: 5px;
+}
+
+.add-event-container .input-container {
+  margin-bottom: 20px;
+}
+
+.add-event-container .input-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.add-event-container .input-container .time-input-wrapper {
+  position: relative;
+}
+
+.add-event-container .input-container .time-input-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.add-event-container .input-container input[type="time"] {
+  width: calc(100% - 20px);
+  padding-right: 30px;
 }

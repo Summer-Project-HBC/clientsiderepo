@@ -8,7 +8,6 @@ const FrequentQuestions = () => {
   const answerHandler = (index) => {
     if (!answer[index])
       setAnswer(!answer);
-
   }
 
   return (

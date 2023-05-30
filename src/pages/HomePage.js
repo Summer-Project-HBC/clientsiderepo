@@ -7,7 +7,7 @@ const HomePage = () => {
     <div className="home-page-container">
       <div className="container">
         <div className="hero-banner">
-          <h1>Welcome to BCH events</h1>
+          <Link to="/browse">Browse events</Link>
         </div>
         <div className="card-container">
           <div className="card">

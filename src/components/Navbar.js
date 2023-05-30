@@ -4,30 +4,38 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav className="navbar">
-      <ul className="nav-links">
-        <li className="nav-item">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/add" className="nav-link">
-            Add Event
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/browse" className="nav-link">
-            Browse Events
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/questions" className="nav-link">
-            FAQ?
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <div className="navbar">
+      <div>
+        <Link to="/"><h4>BCH</h4></Link>
+      </div>
+      <div>
+        <nav>
+          <ul className="nav-links">
+
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/browse" className="nav-link">
+                Browse Events
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/add" className="nav-link">
+                Add Event
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/questions" className="nav-link">
+                FAQ?
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   );
 }
 
