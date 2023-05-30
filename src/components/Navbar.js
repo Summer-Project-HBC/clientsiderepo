@@ -21,6 +21,11 @@ function Navbar() {
             Browse Events
           </Link>
         </li>
+        <li className="nav-item">
+          <Link to="/questions" className="nav-link">
+            FAQ?
+          </Link>
+        </li>
       </ul>
     </nav>
   );
