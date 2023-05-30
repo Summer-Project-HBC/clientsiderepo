@@ -11,23 +11,6 @@ body {
   max-height: 100%;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links li a {
-  color: rgb(47, 45, 45);
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.nav-links li a:hover {
-  color: #ffcc00;
-}
-
 .container {
   max-width: 80%;
   margin: 0 auto;

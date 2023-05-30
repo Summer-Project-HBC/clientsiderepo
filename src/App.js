@@ -4,9 +4,11 @@ import Navbar from "./components/Navbar";
 import AddEvent from "./pages/AddEvent";
 import BrowseEvents from "./pages/BrowseEvents";
 import EventPage from "./pages/EventPage";
+import FrequentQuestions from "./pages/FrequentQuestions";
 import HomePage from "./pages/HomePage";
 
 function App() {
+
   return (
     <div>
       <BrowserRouter>
@@ -15,6 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddEvent />} />
           <Route path="/browse" element={<BrowseEvents />} />
+          <Route path="/questions" element={<FrequentQuestions />} />
           <Route path="/https://www.bc.fi/" />
           <Route path="/https://www.bc.fi/" />
           <Route path="/browse/:individualevent" element={<EventPage />} />
