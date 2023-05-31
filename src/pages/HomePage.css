@@ -43,13 +43,11 @@ body {
   background-size: cover;
   background-position: center;
   background-color: rgb(107, 104, 104);
-  height: 200px;
-  width: 250px;
-  margin: 15px;
+  height: 20rem;
+  width: 18rem;
+  margin: 1rem;
   border-radius: 5px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   text-align: center;
   color: #fff;
@@ -62,16 +60,24 @@ body {
   cursor: pointer;
 }
 
+.card img {
+  height: 10rem;
+  width: 18rem;
+}
+
+.info {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigate {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 2rem;
+}
+
 .card a {
   text-decoration: none;
   color: #fff;
-}
-
-.card h2 {
-  font-size: 2rem;
-  margin: 10px 0;
-}
-
-.card p {
-  font-size: 1.2rem;
 }
