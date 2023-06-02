@@ -17,7 +17,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/browse" className="nav-link">
+              <Link to="/event" className="nav-link">
                 Events
               </Link>
             </li>

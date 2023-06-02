@@ -17,11 +17,9 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddEvent />} />
-          <Route path="/browse" element={<BrowseEvents />} />
+          <Route path="/event" element={<BrowseEvents />} />
           <Route path="/questions" element={<FrequentQuestions />} />
-          <Route path="/https://www.bc.fi/" />
-          <Route path="/https://www.bc.fi/" />
-          <Route path="/browse/:individualevent" element={<EventPage />} />
+          <Route path="/event/:individualevent" element={<EventPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

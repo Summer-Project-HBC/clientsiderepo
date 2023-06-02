@@ -11,7 +11,7 @@ function EventCard({ event }) {
         <h2>{event.title}</h2>
         <p>{event.location}</p>
         <p>{event.date.date}</p>
-        <Link to={`/browse/${event.id}`} className="event-link">
+        <Link to={`/event/${event.id}`}>
           View Event
         </Link>
       </div>

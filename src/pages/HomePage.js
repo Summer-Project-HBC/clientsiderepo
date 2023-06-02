@@ -30,7 +30,7 @@ const HomePage = () => {
     <div className="home-page-container">
       <div className="hero-banner">
         <div className='link-events'>
-          <Link to="/browse">Browse Events</Link>
+          <Link to="/event">Browse Events</Link>
         </div>
       </div>
       <div className="card-container">
@@ -48,7 +48,7 @@ const HomePage = () => {
                 <p>Date: {event.date.date.slice(0, 10)}</p>
               </div>
               <div className='navigate'>
-                <Link to={`/browse/${event.id}`}>See more</Link>
+                <Link to={`/event/${event.id}`}>See more</Link>
                 <button>Register</button>
               </div>
             </div>
