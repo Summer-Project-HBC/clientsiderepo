@@ -7,40 +7,28 @@ import "react-time-picker/dist/TimePicker.css";
 import "./AddEvent.css";
 
 function AddEvent() {
-  const [title, setTitle] = useState("");
-  const [info, setInfo] = useState("");
-  const [date, setDate] = useState(null);
-  const [time, setTime] = useState(null);
-  const [picture, setPicture] = useState("");
-  const [location, setLocation] = useState("");
-  const [transport, setTransport] = useState("");
-  const [duration, setDuration] = useState("");
+  const [date, setDate] = useState('');
+  const [inputs, setInputs] = useState({});
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setInputs((values) => ({...values, [name]: value}));
+}
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
+    
     event.preventDefault();
-    try {
-      const response = await axios.post("http://localhost:3001/events", {
-        title,
-        info,
-        date,
-        time,
-        duration,
-        location,
-        transport,
-        picture,
-      });
-      alert("Event has been added successfully.");
-      console.log("Event added:", response.data);
-      setTitle("");
-      setInfo("");
-      setDate("");
-      setTime("");
-      setDuration("");
-      setLocation("");
-      setTransport("");
-      setPicture("");
-    } catch (error) {}
-  };
+    console.log(date);
+    console.log('hello');
+    console.log(inputs);
+      axios.post('http://localhost:8004/addEvent', inputs)
+      .then(function(response){
+        console.log(response);
+      })
+      .catch(function(err){
+        console.log(err);
+      })
+  }
 
   return (
     <div>
@@ -52,22 +40,26 @@ function AddEvent() {
             <input
               type="text"
               id="title"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
+              name="title"
+              onChange={handleChange}
+          
             />
           </div>
           <div>
             <label htmlFor="info">Event Information:</label>
             <textarea
               id="info"
-              value={info}
-              onChange={(event) => setInfo(event.target.value)}
+              name="info"
+              onChange={handleChange}
+              
             />
           </div>
           <div>
             <label htmlFor="date">Date:</label>
             <DatePicker
               id="date"
+              // name="date"
+              // onChange={handleChange}
               selected={date}
               onChange={(date) => setDate(date)}
               dateFormat="yyyy-MM-dd"
@@ -79,8 +71,9 @@ function AddEvent() {
               <input
                 type="time"
                 id="time"
-                value={time}
-                onChange={(event) => setTime(event.target.value)}
+                name="time"
+                onChange={handleChange}
+                
               />
             </div>
           </div>
@@ -89,24 +82,27 @@ function AddEvent() {
             <label htmlFor="duration">Duration:</label>
             <textarea
               id="duration"
-              value={duration}
-              onChange={(event) => setDuration(event.target.value)}
+              name="duration"
+              onChange={handleChange}
+              
             />
           </div>
           <div>
             <label htmlFor="location">Location:</label>
             <textarea
               id="location"
-              value={location}
-              onChange={(event) => setLocation(event.target.value)}
+              name="location"
+              onChange={handleChange}
+              
             />
           </div>
           <div>
             <label htmlFor="transport">Transport:</label>
             <textarea
               id="transport"
-              value={transport}
-              onChange={(event) => setTransport(event.target.value)}
+              name="transport"
+              onChange={handleChange}
+              
             />
           </div>
           <div>
@@ -114,8 +110,8 @@ function AddEvent() {
             <input
               type="text"
               id="picture"
-              value={picture}
-              onChange={(event) => setPicture(event.target.value)}
+              name="picture"
+              onChange={handleChange}
             />
           </div>
 
