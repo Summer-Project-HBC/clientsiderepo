@@ -12,6 +12,7 @@ function EventPage() {
     setIsLoading(true);
     fetch(`http://localhost:8004/event/${params.individualevent}`)
       .then((response) => response.json())
+
       .then((data) => setData(data));
     setIsLoading(false);
 
@@ -30,11 +31,8 @@ function EventPage() {
       </div>
       <div className="event-card">
         <div>
-        <h2>{data.title}</h2>
-        <p>Duration: {data.duration} hrs</p>
-        <p>Transportation: {data.transport}</p>
-        
-          {/* <img className="event-photo" src={data.picture} alt={data.title} />
+
+          <img className="event-photo" src={data.picture} alt={data.title} />
           <div className="event-card-content">
             <h2>{data.title}</h2>
             <div className="basic-info"> <p>{data.info}</p> </div>
@@ -43,11 +41,13 @@ function EventPage() {
               <p>Time: {data.time.date}</p>
               <p>Duration: {data.duration} hrs</p>
               <p>Venue: {data.location} <span><NavLink to={`https://www.google.com/maps/place/${data.location}`}>↗️</NavLink></span></p>
-              <p>Transportation: {data.transport}</p> */}
+              <p>Transportation: {data.transport}</p>
             </div>
+          </div>
+          <p>Sign up to recieve updates about this event</p>
+          <SignUpForm />
+        </div>
       </div>
-      <p>Sign up to recieve updates about this event</p>
-      <SignUpForm />
     </div>
   );
 }
