@@ -30,7 +30,7 @@ body {
 .event-container {
   margin: 1.5rem 5rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
@@ -80,4 +80,13 @@ body {
 .card a {
   text-decoration: none;
   color: #fff;
+}
+
+@media(max-width:576px) {
+  .event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1rem;
+  }
 }
