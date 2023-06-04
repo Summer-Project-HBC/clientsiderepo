@@ -88,5 +88,6 @@ body {
     flex-direction: column;
     justify-content: center;
     margin: 1rem;
+    gap: 0;
   }
 }
