@@ -9,11 +9,14 @@ function EventCard({ event }) {
       <img className="event-photo" src={event.picture} alt={event.picture} />
       <div className="event-card-content">
         <h2>{event.title}</h2>
-        <p>{event.location}</p>
-        <p>{event.date.date}</p>
-        <Link to={`/browse/${event.id}`} className="event-link">
-          View Event
-        </Link>
+        <div className="description">
+          <p>Address: {event.location}</p>
+          <p>Date: {event.date.date.slice(0, 10)}</p>
+
+          <Link to={`/browse/${event.id}`} className="event-link">
+            View Event
+          </Link>
+        </div>
       </div>
     </div>
   );
