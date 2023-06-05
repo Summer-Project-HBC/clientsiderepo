@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div className="navbar">
       <div>
@@ -34,6 +34,8 @@ function Navbar() {
           </ul>
         </nav>
       </div>
+      {props.loginData.logged && <p>Welcome, {props.loginData.username}</p>}
+      {props.loginData.logged && <button onClick={props.handleLogout}>Logout</button>}
     </div>
   );
 }
