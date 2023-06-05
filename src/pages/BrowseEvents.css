@@ -7,7 +7,6 @@ body {
 .page-container {
   background-image: url('../assets/team-sitting-desk-checking-reports-talking-top-view.jpg');
   background-size: cover;
-  height: 100vh;
 }
 
 .container {
@@ -47,5 +46,6 @@ body {
 
   .event-list {
     margin-left: 0;
+    width: 10rem;
   }
 }
