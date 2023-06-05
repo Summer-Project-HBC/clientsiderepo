@@ -54,8 +54,18 @@ body {
 
 @media(max-width:576px) {
   .event-card {
+    margin: 0;
+    padding: 0;
+    width: 10rem;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
   }
 
   .event-card-content {
