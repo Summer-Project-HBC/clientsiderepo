@@ -34,15 +34,14 @@ function BrowseEvents() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          <div className="event-list">
-            {events
-              .filter((event) =>
-                event.title.toLowerCase().includes(searchTerm.toLowerCase())
-              )
-              .map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
-          </div>
+
+          {events
+            .filter((event) =>
+              event.title.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+            .map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
         </div>
       </div>
     </div>
