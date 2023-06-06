@@ -1,12 +1,6 @@
-body {
-  font-family: "Raleway", sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .hero-banner {
   height: 15rem;
-  background-image: url("../assets/team-sitting-desk-checking-reports-talking-top-view.jpg");
+  background-image: url("../assets/hero.jpg");
   display: flex;
   justify-content: flex-start;
   align-items: center;
