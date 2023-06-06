@@ -5,8 +5,10 @@ import TimePicker from "react-time-picker";
 import "react-datepicker/dist/react-datepicker.css";
 import "react-time-picker/dist/TimePicker.css";
 import "./AddEvent.css";
+import { useNavigate } from "react-router";
 
 function AddEvent() {
+  const navigate = useNavigate();
   const [date, setDate] = useState('');
   const [inputs, setInputs] = useState({});
   const handleChange = (e) => {
@@ -18,16 +20,17 @@ function AddEvent() {
   const handleSubmit = (event) => {
     
     event.preventDefault();
-    console.log(date);
-    console.log('hello');
-    console.log(inputs);
-      axios.post('http://localhost:8004/addEvent', inputs)
+
+      const newInputs = ({...inputs, date:event.target.date.value})  
+
+      axios.post('http://localhost:8004/addEvent', newInputs)
       .then(function(response){
         console.log(response);
       })
       .catch(function(err){
         console.log(err);
       })
+      navigate('/');
   }
 
   return (
@@ -57,12 +60,11 @@ function AddEvent() {
           <div>
             <label htmlFor="date">Date:</label>
             <DatePicker
-              id="date"
-              // name="date"
-              // onChange={handleChange}
+              name="date"
               selected={date}
               onChange={(date) => setDate(date)}
               dateFormat="yyyy-MM-dd"
+              required
             />
           </div>
           <div className="input-container">
@@ -73,7 +75,7 @@ function AddEvent() {
                 id="time"
                 name="time"
                 onChange={handleChange}
-                
+                required
               />
             </div>
           </div>
