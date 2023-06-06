@@ -37,8 +37,8 @@ function EventPage() {
             <h2>{data.title}</h2>
             <div className="basic-info"> <p>{data.info}</p> </div>
             <div className="main-info">
-              <p>Date: {data.date?.date}</p>
-              <p>Time: {data.time?.date}</p>
+              <p>Date: {data.date}</p>
+              <p>Time: {data.time}</p>
               <p>Duration: {data.duration} hrs</p>
               <p>Venue: {data.location} <span><NavLink to={`https://www.google.com/maps/place/${data.location}`}>↗️</NavLink></span></p>
               <p>Transportation: {data.transport}</p>
