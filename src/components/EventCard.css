@@ -24,3 +24,47 @@ img {
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+.event-card-content a {
+  background-color: lightgrey;
+  height: 2rem;
+  width: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+@media(max-width:576px) {
+  .event-card {
+    height: 21rem;
+    width: 20rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: white;
+    box-shadow: 0 0 5px black;
+    border-radius: 5px;
+  }
+
+  img {
+    height: 10rem;
+    width: 20rem;
+    margin-bottom: 0;
+  }
+
+  .event-card-content {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 1rem;
+  }
+
+  .event-card-content p {
+    margin: 0.25rem;
+  }
+}
