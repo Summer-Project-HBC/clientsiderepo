@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 0 2rem;
   background-color: lightgray;
+  position: relative;
 }
 
 nav ul {
@@ -22,4 +23,49 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+button {
+  height: 2rem;
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+@media(max-width:576px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile {
+    display: inline-block;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: lightgray;
+    padding: 10px;
+    z-index: 1;
+  }
+
+  .mobile-nav p,
+  .mobile-nav button {
+    margin-top: 10px;
+  }
+
 }
