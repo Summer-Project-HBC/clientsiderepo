@@ -1,0 +1,34 @@
+.single-event-page img {
+  width: 80%;
+  margin: 2rem 5rem 0 5rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px black;
+}
+
+.single-event-card-content {
+  margin: 0 5rem;
+  max-width: 50rem;
+}
+
+.sign-up {
+  margin: 2rem 5rem;
+}
+
+@media(max-width:576px) {
+  .single-event-page img {
+    width: 90%;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 5px black;
+  }
+
+  .single-event-card-content {
+    margin: 1rem;
+    max-width: 20rem;
+  }
+
+  .sign-up {
+    margin: 1rem;
+  }
+
+}
