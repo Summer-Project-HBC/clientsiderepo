@@ -40,7 +40,7 @@ function BrowseEvents() {
               event.title.toLowerCase().includes(searchTerm.toLowerCase())
             )
             .map((event) => (
-              <EventCard key={event.id} event={event} />
+              <EventCard key={event.id} event={JSON.stringify(event)} />
             ))}
         </div>
       </div>
