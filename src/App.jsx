@@ -13,8 +13,8 @@ import Login from "./components/Login";
 
 function App() {
   const [loginData, setLoginData] = useState({
-    logged: false,
-    username: null
+    logged: localStorage.getItem('loginStatus'),
+    username: localStorage.getItem('username')
   })
   const [user, setUser] = useState()
   const [message, setMessage] = useState()
@@ -36,9 +36,11 @@ function App() {
     e.preventDefault()
     try {
       const response = await axios.post('http://localhost:8004/login', user)
+      localStorage.setItem('loginStatus', true)
+      localStorage.setItem('username', response.data)
       setLoginData({
-        logged:true,
-        username:response.data
+        logged: localStorage.getItem('loginStatus'),
+        username: localStorage.getItem('username')
       })
       setMessage()
     } catch (error) {
@@ -52,6 +54,8 @@ function App() {
       logged: false,
       username: null
     })
+    localStorage.removeItem('loginStatus')
+    localStorage.removeItem('username')
   }
 
   const handleSignup = async (e) => {
