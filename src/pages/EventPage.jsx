@@ -12,6 +12,7 @@ function EventPage(props) {
   const [feedbackStatus, setFeedbackStatus] = useState()
   const [feedback, setFeedback] = useState({})
   const [overlay, setOverlay] = useState(false)
+  const [userEvents, setUserEvents] = useState([])
 
   useEffect(() => {
     setIsLoading(true);
@@ -19,7 +20,10 @@ function EventPage(props) {
       .then((response) => response.json())
       .then((data) => {
         setData(data)
-        checkFeedback(data.id)
+        if (props.loginData.logged) {
+          checkUserEvents()
+          checkFeedback(data.id)
+        }
       });
     setIsLoading(false);
   }, [params.individualevent]);
@@ -65,6 +69,16 @@ function EventPage(props) {
   })
   }
 
+  const checkUserEvents = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8004/checkmyevents/${props.loginData.userid}`)
+      if (response.data !== "") {
+        setUserEvents(response.data)
+      }
+    } catch (error) {
+    }
+}
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -85,13 +99,13 @@ function EventPage(props) {
       </div>
       <div className="sign-up">
         {props.loginData.logged ? 
-        <SignUpForm loginData={props.loginData} eventId={data.id} />
+        <SignUpForm loginData={props.loginData} eventId={data.id} userEvents={userEvents} />
         :
         <p>Please, <Link to='/login' className="loginButton">Login</Link> to sign up for this event</p>}
       </div>
       {message && <p>{message}</p>}
-      {props.loginData.logged && !feedbackStatus && <button onClick={overlayHandler}>Leave your feedback about this event</button>}
-      {feedbackStatus && <p>{feedbackStatus}</p>}
+      {props.loginData.logged && !feedbackStatus &&  userEvents.includes(data.id) && <button onClick={overlayHandler}>Leave your feedback about this event</button>}
+      {feedbackStatus && userEvents.includes(data.id) && <p>{feedbackStatus}</p>}
       {overlay && <div className="overlay">
         <div className="modal">
           <button className="closebtn" onClick={overlayHandler}>Close</button>
