@@ -24,6 +24,7 @@ export default function Login(props) {
                     <button type="submit">Log in</button>
                     
                 </form>
+                {props.message && <p>{props.message}</p>}
                 <a onClick={props.visibilityHandler}>Don't have an account? Sign up for free!</a>
         </>
         }

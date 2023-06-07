@@ -14,6 +14,43 @@
   margin: 2rem 5rem;
 }
 
+.single-event-page {
+  position: relative;
+}
+
+.single-event-page .overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: centers;
+}
+
+.single-event-page .modal {
+  padding: 4rem;
+  position: relative;
+  background-color: white;
+}
+
+.single-event-page .modal form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-event-page .modal .closebtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
 @media(max-width:576px) {
   .single-event-page img {
     width: 90%;

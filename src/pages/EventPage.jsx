@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, NavLink, Link } from "react-router-dom";
+import axios from 'axios'
 import SignUpForm from "../components/SignUpForm";
 import "./EventPage.css";
 
@@ -7,22 +8,62 @@ function EventPage(props) {
   const params = useParams();
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  console.log(props.loginData);
-  const handleEventSignUp = () => {
-    console.log('succesfull');
-  }
-  const handleEventFollow = () => {
-    console.log('succesfull');
-  }
+  const [message, setMessage] = useState()
+  const [feedbackStatus, setFeedbackStatus] = useState()
+  const [feedback, setFeedback] = useState({})
+  const [overlay, setOverlay] = useState(false)
+
   useEffect(() => {
     setIsLoading(true);
     fetch(`http://localhost:8004/event/${params.individualevent}`)
       .then((response) => response.json())
-
-      .then((data) => setData(data));
+      .then((data) => {
+        setData(data)
+        checkFeedback(data.id)
+      });
     setIsLoading(false);
-
   }, [params.individualevent]);
+
+  const feedbackHandler = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post('http://localhost:8004/feedback', {
+        event: parseInt(data.id),
+        user: parseInt(props.loginData.userid),
+        feedback: JSON.stringify(feedback)
+      })
+      setFeedback({})
+      setMessage(response.data)
+      checkFeedback(data.id)
+      setOverlay(false)
+    } catch (error) {
+      console.log(error)
+      setOverlay(false)
+    }
+  }
+
+  const checkFeedback = async (id) => {
+    try {
+      const response = await axios.post('http://localhost:8004/checkfeedback', {
+        event: parseInt(id),
+        user: parseInt(props.loginData.userid)
+      })
+      setFeedbackStatus(response.data)
+    } catch (error) {
+    }
+  }
+
+  const overlayHandler = (e) => {
+    e.preventDefault()
+    setOverlay(!overlay)
+  }
+
+  const onInput = (e) => {
+    setFeedback({
+      ...feedback,
+      [e.target.name]: e.target.value,
+  })
+  }
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -44,14 +85,29 @@ function EventPage(props) {
       </div>
       <div className="sign-up">
         {props.loginData.logged ? 
-        <>
-        <button onClick={handleEventSignUp}>Reserve a spot</button>
-        <button onClick={handleEventFollow}>Follow</button>
-        </>
+        <SignUpForm loginData={props.loginData} eventId={data.id} />
         :
-        <p>Please, <Link to='/login' className="loginButton">Login</Link> to signUp for this event</p>}
-        
+        <p>Please, <Link to='/login' className="loginButton">Login</Link> to sign up for this event</p>}
       </div>
+      {message && <p>{message}</p>}
+      {props.loginData.logged && !feedbackStatus && <button onClick={overlayHandler}>Leave your feedback about this event</button>}
+      {feedbackStatus && <p>{feedbackStatus}</p>}
+      {overlay && <div className="overlay">
+        <div className="modal">
+          <button className="closebtn" onClick={overlayHandler}>Close</button>
+          <form onSubmit={feedbackHandler}>
+            <label htmlFor="question1">Which elements of the event did you like the most?</label>
+            <textarea type="text" name="question1" onChange={onInput} required />
+            <label htmlFor="question2">What, if anything, did you dislike about this event?</label>
+            <textarea type="text" name="question2" onChange={onInput} required />
+            <label htmlFor="question3">Are you likely to participate in one of our events in the future?</label>
+            <textarea type="text" name="question3" onChange={onInput} required />
+            <label htmlFor="question4">How likely are you to tell a friend about this event?</label>
+            <textarea type="text" name="question4" onChange={onInput} required />
+            <button type="submit">Submit feedback</button>
+          </form>
+        </div>
+      </div>}
     </div>
   );
 }
