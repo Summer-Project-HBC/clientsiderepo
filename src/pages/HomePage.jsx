@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Iframe from 'react-iframe'
 import { Link } from "react-router-dom";
 import './HomePage.css'
 
@@ -54,6 +55,7 @@ const HomePage = () => {
             </div>
           ))}
         </div>
+        <Iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1982.743349042564!2d24.93296521610765!3d60.20153018197249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46920991ece823df%3A0xd4b4f30731ef9db7!2sBusiness%20College%20Helsinki!5e0!3m2!1sen!2sfi!4v1686125175991!5m2!1sen!2sfi" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></Iframe>
       </div>
     </div>
   );
