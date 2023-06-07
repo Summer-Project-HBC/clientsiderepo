@@ -10,11 +10,13 @@ import EventPage from "./pages/EventPage";
 import FrequentQuestions from "./pages/FrequentQuestions";
 import HomePage from "./pages/HomePage";
 import Login from "./components/Login";
+import MyEvents from './pages/MyEvents'
 
 function App() {
   const [loginData, setLoginData] = useState({
     logged: localStorage.getItem('loginStatus'),
-    username: localStorage.getItem('username')
+    username: localStorage.getItem('username'),
+    userid: localStorage.getItem('userid')
   })
   const [user, setUser] = useState()
   const [message, setMessage] = useState()
@@ -37,11 +39,14 @@ function App() {
     try {
       const response = await axios.post('http://localhost:8004/login', user)
       localStorage.setItem('loginStatus', true)
-      localStorage.setItem('username', response.data)
+      localStorage.setItem('username', response.data.username)
+      localStorage.setItem('userid', response.data.userid)
       setLoginData({
         logged: localStorage.getItem('loginStatus'),
-        username: localStorage.getItem('username')
+        username: localStorage.getItem('username'),
+        userid: localStorage.getItem('userid')
       })
+      setUser()
       setMessage('Logged In')
 
     } catch (error) {
@@ -57,6 +62,7 @@ function App() {
     })
     localStorage.removeItem('loginStatus')
     localStorage.removeItem('username')
+    localStorage.removeItem('userid')
     setMessage('logged Out');
   }
 
@@ -64,13 +70,12 @@ function App() {
     e.preventDefault()
     try {
       const response = await axios.post('http://localhost:8004/newuser', user)
+      setUser()
       setMessage(response.data.message)
     } catch (error) {
       setMessage(error.response.data.message)
     }
   }
-  
-  
 
   return (
     <div>
@@ -80,10 +85,11 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddEvent />} />
           <Route path="/browse" element={<BrowseEvents />} />
+          {loginData.logged && <Route path="/myevents" element={<MyEvents loginData={loginData} />} />}
           <Route path="/questions" element={<FrequentQuestions />} />
           <Route path="/https://www.bc.fi/" />
           <Route path="/https://www.bc.fi/" />
-          <Route path="/browse/:individualevent" element={<EventPage  loginData={loginData}/>} />
+          <Route path="/browse/:individualevent" element={<EventPage loginData={loginData} />} />
           <Route path="/login" element={<Login handleLogin={handleLogin} handleSignup={handleSignup} onInput={onInput} message={message} visibility={visibility} visibilityHandler={visibilityHandler}/>}/>
         </Routes>
         <Footer />

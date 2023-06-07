@@ -33,6 +33,11 @@ function Navbar(props) {
                   Events
                 </Link>
               </li>
+              {props.loginData.logged && <li className="nav-item">
+                <Link to="/myevents" className="nav-link">
+                  My Events
+                </Link>
+              </li>}
               <li className="nav-item">
                 <Link to="/add" className="nav-link">
                   Add Event

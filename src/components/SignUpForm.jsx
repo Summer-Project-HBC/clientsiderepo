@@ -1,45 +1,46 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "./SignUpForm.css";
 
-const SignUpForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-  });
+const SignUpForm = (props) => {
+  const [message, setMessage] = useState()
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const handleFollow = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post('http://localhost:8004/follow', {
+        event: parseInt(props.eventId),
+        user: parseInt(props.loginData.userid)
+      })
+      setMessage(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // form submission logic here, such as making an API request
-    console.log(formData);
-  };
+  const handleUnfollow = async (e) => {
+    e.preventDefault()
+    try {
+      const response = await axios.post('http://localhost:8004/unfollow', {
+        event: props.eventId,
+        user: props.loginData.userid
+      })
+      setMessage(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="Name"
-      />
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder="Email"
-      />
-      <button type="submit" className="form-button">
-        Sign Up
+    <div>
+      <button className="form-button" onClick={handleFollow}>
+        Reserve a place
       </button>
-    </form>
+      <button className="form-button" onClick={handleUnfollow}>
+        Cancel your place
+      </button>
+      {message && <p>{message}</p>}
+    </div>
   );
 };
 
