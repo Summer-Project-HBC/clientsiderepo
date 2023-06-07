@@ -33,12 +33,12 @@ const SignUpForm = (props) => {
 
   return (
     <div>
-      <button className="form-button" onClick={handleFollow}>
+      {!props.userEvents.includes(props.eventId) && <button className="form-button" onClick={handleFollow}>
         Reserve a place
-      </button>
-      <button className="form-button" onClick={handleUnfollow}>
+      </button>}
+      {props.userEvents.includes(props.eventId) && <button className="form-button" onClick={handleUnfollow}>
         Cancel your place
-      </button>
+      </button>}
       {message && <p>{message}</p>}
     </div>
   );
