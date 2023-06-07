@@ -1,10 +1,14 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 0 2rem;
-  height: 3rem;
+  padding: 0.5rem 2rem;
+  height: 3.5rem;
   background-color: lightgray;
   position: relative;
+}
+
+.navbar h4 {
+  padding-top: 0.5rem;
 }
 
 nav ul {

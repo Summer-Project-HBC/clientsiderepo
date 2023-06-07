@@ -6,6 +6,10 @@
   font-family: "Raleway", sans-serif;
 }
 
+.add-event-container h1 {
+  text-align: center;
+}
+
 .add-event-container form {
   max-width: 500px;
   margin: 0 auto;
@@ -31,7 +35,7 @@
 }
 
 
-.add-event-container input[type="date"]  {
+.add-event-container input[type="date"] {
   box-sizing: border-box;
 }
 
@@ -44,6 +48,7 @@
   border: none;
   border-radius: 5px;
   font-size: 18px;
+  height: 2.5rem;
   cursor: pointer;
 }
 
@@ -89,4 +94,4 @@
 .add-event-container .input-container input[type="time"] {
   width: calc(100% - 20px);
   padding-right: 30px;
-  }
+}
