@@ -13,7 +13,7 @@ const HomePage = () => {
       .then((response) => response.json())
       .then((data) => {
         const currentDate = new Date();
-        const upcomingEvents = data.filter(event => new Date(event.date.date) > currentDate);
+        const upcomingEvents = data.filter(event => new Date(event.date) > currentDate);
         setEvents(upcomingEvents);
         setIsLoading(false);
       })
@@ -46,11 +46,10 @@ const HomePage = () => {
               <div className='info'>
                 <p> {event.title}</p>
                 <p>Venue: {event.location}</p>
-                <p>Date: {event.date.date.slice(0, 10)}</p>
+                <p>Date: {event.date}</p>
               </div>
               <div className='navigate'>
                 <Link to={`/browse/${event.id}`}>See more</Link>
-                <button>Register</button>
               </div>
             </div>
           ))}
