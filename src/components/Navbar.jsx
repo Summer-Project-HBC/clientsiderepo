@@ -41,11 +41,15 @@ function Navbar(props) {
                 FAQ?
               </Link>
             </li>
-            {props.loginData.logged && (
+            {props.loginData.logged? (
               <li className="nav-item">
                 <button onClick={props.handleLogout}>Logout</button>
               </li>
-            )}
+            ):
+            <Link to="/login" className="nav-link">
+                Login
+              </Link>
+            }
           </ul>
         </nav>
       </div>

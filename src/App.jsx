@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Navbar from "./components/Navbar";
@@ -42,7 +42,8 @@ function App() {
         logged: localStorage.getItem('loginStatus'),
         username: localStorage.getItem('username')
       })
-      setMessage()
+      setMessage('Logged In')
+
     } catch (error) {
       setMessage(error.response.data.message)
     }
@@ -56,6 +57,7 @@ function App() {
     })
     localStorage.removeItem('loginStatus')
     localStorage.removeItem('username')
+    setMessage('logged Out');
   }
 
   const handleSignup = async (e) => {
@@ -74,15 +76,16 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar loginData={loginData} handleLogout={handleLogout} />
-        {loginData.logged ? <Routes>
+        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddEvent />} />
           <Route path="/browse" element={<BrowseEvents />} />
           <Route path="/questions" element={<FrequentQuestions />} />
           <Route path="/https://www.bc.fi/" />
           <Route path="/https://www.bc.fi/" />
-          <Route path="/browse/:individualevent" element={<EventPage />} />
-        </Routes> : <Login handleLogin={handleLogin} handleSignup={handleSignup} onInput={onInput} message={message} visibility={visibility} visibilityHandler={visibilityHandler} />}
+          <Route path="/browse/:individualevent" element={<EventPage  loginData={loginData}/>} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} handleSignup={handleSignup} onInput={onInput} message={message} visibility={visibility} visibilityHandler={visibilityHandler}/>}/>
+        </Routes>
         <Footer />
       </BrowserRouter>
     </div>

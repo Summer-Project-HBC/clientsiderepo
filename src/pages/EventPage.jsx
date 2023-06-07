@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { useParams, NavLink } from "react-router-dom";
-import SignUpForm from "../components/SignUpForm";
+import { useParams, NavLink, Link } from "react-router-dom";
 import "./EventPage.css";
 
-function EventPage() {
+function EventPage(props) {
   const params = useParams();
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  console.log(props.loginData);
+  const handleEventSignUp = () => {
+    console.log('succesfull');
+  }
+  const handleEventFollow = () => {
+    console.log('succesfull');
+  }
   useEffect(() => {
     setIsLoading(true);
     fetch(`http://localhost:8004/event/${params.individualevent}`)
@@ -36,8 +42,14 @@ function EventPage() {
         </div>
       </div>
       <div className="sign-up">
-        <p>Sign up to recieve updates about this event</p>
-        <SignUpForm />
+        {props.loginData.logged ? 
+        <>
+        <button onClick={handleEventSignUp}>Reserve a spot</button>
+        <button onClick={handleEventFollow}>Follow</button>
+        </>
+        :
+        <p>Please, <Link to='/login' className="loginButton">Login</Link> to signUp for this event</p>}
+        
       </div>
     </div>
   );
