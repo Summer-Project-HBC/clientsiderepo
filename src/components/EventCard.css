@@ -20,6 +20,11 @@ img {
   width: 50rem;
 }
 
+.event-card-content h2,
+.event-card-content p {
+  margin-bottom: 1.5rem;
+}
+
 .event-card-content {
   margin: 2rem;
   padding: 1rem;
@@ -68,7 +73,8 @@ img {
     margin-left: 1rem;
   }
 
+  .event-card-content h2,
   .event-card-content p {
-    margin: 0.25rem;
+    margin-bottom: 0.5rem;
   }
 }
