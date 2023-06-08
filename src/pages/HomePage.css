@@ -1,6 +1,8 @@
 .hero-banner {
   height: 15rem;
   background-image: url("../assets/hero.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: flex-start;
   align-items: center;
