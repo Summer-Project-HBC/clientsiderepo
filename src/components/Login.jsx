@@ -25,14 +25,19 @@ export default function Login(props) {
                     
                 </form>
                 {props.message && <p>{props.message}</p>}
-                <a onClick={props.visibilityHandler}>Don't have an account? Sign up for free!</a>
+                <p>Don't have an account? <span className='login-btn' onClick={props.visibilityHandler}>Sign Up</span> for free!</p>
         </>
         }
 
                 
             </div>}
             {!props.visibility && <div className='login-container'>
-                <form onSubmit={props.handleSignup}>
+            {props.message === 'Account has been created' ?
+        <><p>{props.message}</p>
+        <button onClick={props.visibilityHandler}>Log in</button>
+        </>:
+        <>
+        <form onSubmit={props.handleSignup}>
                     <input
                     type="text"
                     name="login"
@@ -46,7 +51,10 @@ export default function Login(props) {
                     <button type="submit">Sign up</button>
                 </form>
                 {props.message && <p>{props.message}</p>}
-                <a onClick={props.visibilityHandler}>Already have an account? Log in!</a>
+                <p>Already have an account? <span className='login-btn' onClick={props.visibilityHandler}>Log In</span></p>
+        </>   
+        }
+            
             </div>}
         </div>
     )
