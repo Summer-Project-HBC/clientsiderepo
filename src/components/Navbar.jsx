@@ -14,8 +14,8 @@ function Navbar(props) {
       </div>
       <div>
         <nav>
-          <button class="mobile" onClick={handleMobile}>
-            <span class="material-symbols-outlined">Menu</span>
+          <button className="mobile" onClick={handleMobile}>
+            <span className="material-symbols-outlined">Menu</span>
           </button>
           <div className={`nav-links ${mobileNav ? "mobile-nav" : ""}`}>
             {props.loginData.logged && (
