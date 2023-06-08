@@ -37,7 +37,7 @@
   background-size: cover;
   background-position: center;
   background-color: rgb(107, 104, 104);
-  height: 25rem;
+  height: 22rem;
   width: 18rem;
   margin: 1rem;
   border-radius: 5px;
@@ -57,18 +57,34 @@
 .card img {
   height: 10rem;
   width: 18rem;
+  border-radius: 5px;
+}
+
+h3,
+p {
+  margin-bottom: 0.5rem;
 }
 
 .info {
   margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1rem 2.5rem;
 }
 
 .navigate {
   display: flex;
   justify-content: space-between;
   margin: 0 2rem;
+  background-color: black;
+  height: 2rem;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 .card a {

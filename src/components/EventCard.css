@@ -11,6 +11,10 @@
   border-radius: 5px;
 }
 
+.event {
+  min-height: 70vh;
+}
+
 img {
   height: 20rem;
   width: 50rem;

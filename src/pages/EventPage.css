@@ -68,4 +68,9 @@
     margin: 1rem;
   }
 
+  iframe {
+    height: 10rem;
+    width: 22rem;
+  }
+
 }

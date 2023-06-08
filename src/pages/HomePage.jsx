@@ -43,7 +43,7 @@ const HomePage = () => {
             <div className='card' key={index}>
               <img className="event-photo" src={event.picture} alt={event.title} />
               <div className='info'>
-                <p> {event.title}</p>
+                <h3> {event.title}</h3>
                 <p>Venue: {event.location}</p>
                 <p>Date: {event.date}</p>
               </div>
