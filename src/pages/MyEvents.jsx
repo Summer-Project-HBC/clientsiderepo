@@ -26,7 +26,6 @@ export default function MyEvents(props) {
   }
 
   return (
-    <div>
       <div className="myevent-page-container">
         <div className="myevent-container">
           <h1>My Events</h1>
@@ -40,6 +39,5 @@ export default function MyEvents(props) {
             ))}
         </div>
       </div>
-    </div>
   )
 }
