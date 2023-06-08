@@ -8,6 +8,22 @@
 .single-event-card-content {
   margin: 0 5rem;
   max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.basic-info,
+.main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.basic-info p {
+  text-align: left;
 }
 
 .single-event-card-content h2,
@@ -35,7 +51,7 @@ Iframe {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: centers;
+  align-items: center;
 }
 
 .single-event-page .modal {
