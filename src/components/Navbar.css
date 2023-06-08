@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 2rem;
-  height: 3.5rem;
+  height: 4rem;
   background-color: lightgray;
   position: relative;
 }
@@ -34,16 +34,10 @@ button {
   height: 1.5rem;
 }
 
-.logout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .mobile {
   display: none;
   position: absolute;
-  top: 5px;
+  top: 15px;
   right: 10px;
   height: 1.5rem;
 }
