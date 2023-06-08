@@ -10,6 +10,12 @@
   max-width: 50rem;
 }
 
+.single-event-card-content h2,
+.single-event-card-content p,
+Iframe {
+  margin-bottom: 1rem;
+}
+
 .sign-up {
   margin: 2rem 5rem;
 }
